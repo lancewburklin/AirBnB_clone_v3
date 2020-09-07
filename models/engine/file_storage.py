@@ -91,6 +91,8 @@ class FileStorage:
         Returns number of objects of type <cls> or number of all objects
         if cls not defined 
         """
+        if type(cls) == str:
+            cls = classes.get(cls)
         objs = self.all(cls)
         count = 0
         for key in objs:

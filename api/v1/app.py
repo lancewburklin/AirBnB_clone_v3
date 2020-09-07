@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ app.py """
 
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, jsonify
 from models import storage
 from api.v1.views import app_views
 
@@ -10,11 +10,15 @@ app = Flask(__name__)
 app.register_blueprint(app_views)
 
 
+@app.errorhandler(404)
+def not_found(e):
+    """ You done fucked up """
+    return jsonify({"error": "Not found"})
+
 @app.teardown_appcontext
 def close(dummy):
     """ closes after being run """
     storage.close()
-
 
 if __name__ == "__main__":
 

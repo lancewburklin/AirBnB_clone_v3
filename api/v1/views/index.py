@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from api.v1.views import app_views
-from flask.json import jsonify
+from flask import jsonify, abort
 
 
 @app_views.route('/status', methods=['GET'])

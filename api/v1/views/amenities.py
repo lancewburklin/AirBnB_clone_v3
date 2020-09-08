@@ -15,7 +15,7 @@ settings = {
 
 @app_views.route('/amenities', **settings)
 @app_views.route('/amenities/<amenity_id>', **settings)
-def states(state_id=None):
+def amenities(amenity_id=None):
     """ Manages return of /amenities/ pages """
 
     if amenity_id is None:

@@ -13,7 +13,7 @@ app.register_blueprint(app_views)
 @app.errorhandler(404)
 def not_found(e):
     """ You done fucked up """
-    return jsonify({"error": "Not found"})
+    return jsonify({"error": "Not found"}), 404
 
 
 @app.teardown_appcontext

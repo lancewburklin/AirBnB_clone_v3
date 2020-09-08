@@ -9,6 +9,7 @@ def status():
     """ returns status of API """
     return jsonify({'status': 'OK'})
 
+
 @app_views.route('/stats', methods=['GET'])
 def counter():
     """ Returns the number of instances for each object type """

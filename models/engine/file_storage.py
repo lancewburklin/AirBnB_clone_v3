@@ -87,9 +87,9 @@ class FileStorage:
             return None
 
     def count(self, cls=None):
-        """ 
+        """
         Returns number of objects of type <cls> or number of all objects
-        if cls not defined 
+        if cls not defined
         """
         if type(cls) == str:
             cls = classes.get(cls)

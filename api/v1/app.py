@@ -15,6 +15,7 @@ def not_found(e):
     """ You done fucked up """
     return jsonify({"error": "Not found"})
 
+
 @app.teardown_appcontext
 def close(dummy):
     """ closes after being run """

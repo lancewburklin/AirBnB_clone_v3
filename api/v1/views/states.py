@@ -2,7 +2,7 @@
 """ This is the states api. Speak friend, and enter """
 
 from api.v1.views import app_views
-from flask import abort
+from flask import abort, jsonify
 from flask.globals import request
 from models import storage
 from models.state import State
@@ -38,7 +38,7 @@ def states(state_id=None):
         if request.method == "GET":
             states = storage.all(State).values()
             states = [state.to_dict() for state in states]
-            return states
+            return jsonify(states)
 
     # Handle '/states/<state_id>' cases
 

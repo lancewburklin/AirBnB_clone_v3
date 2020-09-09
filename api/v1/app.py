@@ -2,12 +2,21 @@
 """ app.py """
 
 from flask import Flask, Blueprint, jsonify
+from flask_cors import CORS
 from models import storage
 from api.v1.views import app_views
 
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
+
+
+# Update api/v1/app.py to create a CORS instance allowing: /* for 0.0.0.0
+cors = CORS(app, origins='0.0.0.0')
+
+# You will update it later when you will deploy your API to production.
+
+# Now you can see this HTTP Response Header: < Access-Control-Allow-Origin: 0.0.0.0
 
 
 @app.errorhandler(404)
@@ -20,6 +29,7 @@ def not_found(e):
 def close(dummy):
     """ closes after being run """
     storage.close()
+
 
 if __name__ == "__main__":
 

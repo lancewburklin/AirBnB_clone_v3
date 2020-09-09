@@ -6,6 +6,7 @@ from flask import abort, jsonify
 from flask.globals import request
 from models import storage
 from models.place import Place
+from models.user import User
 
 
 # Update api/v1/views/__init__.py to import this new file
@@ -32,6 +33,9 @@ def Places_API(city_id=None):
             return "Not a JSON", 400
         if form.get('user_id') is None:
             return 'Missing user_id', 400
+        the_user = storage.get(User, form.get('user_id'))
+        if the_user is None:
+            abort(404)
         if form.get('name') is None:
             return "Missing name", 400
 

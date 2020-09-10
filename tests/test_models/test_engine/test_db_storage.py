@@ -90,7 +90,7 @@ class TestDBStorage(unittest.TestCase):
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_get(self):
         """ Tests DBStorage get method """
-        new_state = State()
+        new_state = State(name="Steve")
         new_state.id = '1234'
         new_state.save()
         expected = new_state
